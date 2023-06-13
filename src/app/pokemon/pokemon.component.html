@@ -1,0 +1,10 @@
+<p>
+  pokemon works!
+</p>
+
+<div *ngFor="let dato of datos | paginate: { itemsPerPage: pageSize, currentPage: p, totalItems: totalItems }">
+  <div>{{ dato.name }}</div>
+</div>
+
+<pagination-controls (pageChange)="cambiarPagina($event)"></pagination-controls>
+
