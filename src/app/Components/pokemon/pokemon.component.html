@@ -1,0 +1,15 @@
+<p>
+  pokemon works!
+</p>
+
+<input type="text" [(ngModel)]="filtroNombre" (input)="aplicarFiltro()" placeholder="Buscar por nombre" />
+
+<button (click)="ordenarAscendente()">Ordenar Ascendente</button>
+<button (click)="ordenarDescendente()">Ordenar Descendente</button>
+
+<div *ngFor="let dato of datosFiltrados | paginate: { itemsPerPage: pageSize, currentPage: p, totalItems: totalItems }">
+  <div>{{ dato.name }}</div>
+</div>
+
+<pagination-controls (pageChange)="cambiarPagina($event)"></pagination-controls>
+
