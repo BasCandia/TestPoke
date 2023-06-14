@@ -2,14 +2,37 @@
   pokemon works!
 </p>
 
-<input type="text" [(ngModel)]="filtroNombre" (input)="aplicarFiltro()" placeholder="Buscar por nombre" />
+<div class="d-flex justify-content-center">
+  <div class="card border-secondary">
+  <div class="table-responsive">
+  <table class="table text-center">
+    <thead>
+      <tr>
+        <th>
+          <input type="text" [(ngModel)]="filtroNombre" (input)="aplicarFiltro()" placeholder="Buscar por nombre" />
+        </th>
+        <th>
+          <button (click)="ordenarAscendente()">Ordenar Ascendente</button>
+        </th>
+        <th>
+          <button (click)="ordenarDescendente()">Ordenar Descendente</button>
+        </th>
+      </tr>
+    </thead>
 
-<button (click)="ordenarAscendente()">Ordenar Ascendente</button>
-<button (click)="ordenarDescendente()">Ordenar Descendente</button>
+    <tbody>
+      <tr class="align-middle">
+        <div *ngFor="let dato of datosFiltrados | paginate: { itemsPerPage: pageSize, currentPage: p, totalItems: totalItems }" >
 
-<div *ngFor="let dato of datosFiltrados | paginate: { itemsPerPage: pageSize, currentPage: p, totalItems: totalItems }">
-  <div>{{ dato.name }}</div>
+            <th (click)="abrirDialogo(dato)" scope="row">{{ dato.name }}</th>
+
+        </div>
+      </tr>
+    </tbody>
+
+  </table>
+
+  <pagination-controls (pageChange)="cambiarPagina($event)"></pagination-controls>
+  </div>
+  </div>
 </div>
-
-<pagination-controls (pageChange)="cambiarPagina($event)"></pagination-controls>
-

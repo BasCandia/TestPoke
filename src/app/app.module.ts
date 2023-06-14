@@ -7,18 +7,22 @@ import { PokemonComponent } from './Components/pokemon/pokemon.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DetalleDialogComponent } from './Components/pokemon/detalle-dialog/detalle-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PokemonComponent
+    PokemonComponent,
+    DetalleDialogComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

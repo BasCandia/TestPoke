@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PokeAPIService } from '../../Services/poke-api.service';
 import { PaginationInstance } from 'ngx-pagination';
+import { MatDialog, MatDialogRef  } from '@angular/material/dialog';
+import { DetalleDialogComponent } from './detalle-dialog/detalle-dialog.component';
 
 @Component({
   selector: 'app-pokemon',
@@ -10,7 +12,7 @@ import { PaginationInstance } from 'ngx-pagination';
 export class PokemonComponent implements OnInit {
 
   //LISTA PAGINADA
-  datos: any[] = []; // Array para almacenar los datos recibidos de la API
+  datos: any[] = []; // Array para datos de la API
   p: number = 1; // Página actual de la paginación
   pageSize: number = 20; // Cantidad de elementos por página
   totalItems: number = 0; // Total de elementos recibidos de la API
@@ -23,14 +25,20 @@ export class PokemonComponent implements OnInit {
   //ORDEN ASCENDENTE Y DESCENDENTE
   ordenAscendente: boolean = true;
 
-  constructor(private PokeAPIService: PokeAPIService) { }
+  //DIALOG ESPECIFICO
+  datoPokemon: any[] = [];
+
+  dialogRef!: MatDialogRef<DetalleDialogComponent>;
+
+  constructor(private PokeAPIService: PokeAPIService, private dialog: MatDialog) { }
+
 
   ngOnInit() {
     this.obtenerDatos();
   }
 
   obtenerDatos() {
-    console.log("ALOJA");
+    //console.log("ALOJA");
     this.PokeAPIService.getData().subscribe(data => {
       console.log(data);
       this.datos = data.results;
@@ -43,8 +51,8 @@ export class PokemonComponent implements OnInit {
   }
 
   cambiarPagina(pagina: number) {
-    this.p = pagina; // Actualizar la variable 'p' con el número de página seleccionado
-    this.obtenerDatos(); // Llamar a tu método para obtener los datos de la API con la página actualizada
+    this.p = pagina;
+    this.obtenerDatos();
   }
 
   aplicarFiltro() {
@@ -79,5 +87,30 @@ export class PokemonComponent implements OnInit {
     this.ordenAscendente = false;
     this.aplicarFiltro();
   }
+
+  abrirDialogo(dato: any): void {
+    if (this.dialogRef) {
+      this.dialogRef.close();
+    }
+     //console.log("ALOJA");
+     this.PokeAPIService.getDataEspecifico(dato.name).subscribe(data => {
+      //console.log(data);
+      this.datoPokemon = data;
+
+      this.dialogRef = this.dialog.open(DetalleDialogComponent, {
+        width: '400px',
+        data: this.datoPokemon
+      });
+
+      this.dialogRef.afterClosed().subscribe(result => {
+        console.log('Diálogo cerrado');
+      });
+
+    }, error => {
+      // Maneja los errores en caso de que ocurran
+    });
+  }
+
+
 
 }
