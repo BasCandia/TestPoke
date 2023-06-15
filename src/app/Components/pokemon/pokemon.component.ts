@@ -38,15 +38,13 @@ export class PokemonComponent implements OnInit {
   }
 
   obtenerDatos() {
-    //console.log("ALOJA");
     this.PokeAPIService.getData().subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.datos = data.results;
       this.totalItems = this.datos.length;
       this.datosOriginales = this.datos;
       this.aplicarFiltro();
     }, error => {
-      // Maneja los errores en caso de que ocurran
     });
   }
 
@@ -92,7 +90,6 @@ export class PokemonComponent implements OnInit {
     if (this.dialogRef) {
       this.dialogRef.close();
     }
-     //console.log("ALOJA");
      this.PokeAPIService.getDataEspecifico(dato.name).subscribe(data => {
       //console.log(data);
       this.datoPokemon = data;
@@ -103,11 +100,10 @@ export class PokemonComponent implements OnInit {
       });
 
       this.dialogRef.afterClosed().subscribe(result => {
-        console.log('Diálogo cerrado');
+        //console.log('Diálogo cerrado');
       });
 
     }, error => {
-      // Maneja los errores en caso de que ocurran
     });
   }
 

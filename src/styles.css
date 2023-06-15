@@ -24,7 +24,9 @@
   z-index: 9999;
 }
 
-
+.max-width-500 {
+  max-width: 250px;
+}
 
 .dialog-overlay {
   position: fixed;
@@ -36,9 +38,16 @@
   z-index: 999; /* Asegúrate de que el z-index sea mayor que el del diálogo */
 }
 
+#carouselContainer {
+  margin: 0 auto; /* Alinea el contenedor horizontalmente en el centro */
+  height: 250px;
+  width: 250px; /* Establece el ancho del contenedor en 250px */
+}
+
 body {
   background-image: url('src/assets/background.png'); /* o background-color: #abcdef; para un color de fondo */
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 

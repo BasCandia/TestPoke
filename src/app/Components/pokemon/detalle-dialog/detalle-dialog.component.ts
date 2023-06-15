@@ -12,8 +12,7 @@ export class DetalleDialogComponent {
   constructor(@Inject(MAT_DIALOG_DATA) public detalles: any) {}
 
   ngOnInit() {
-    console.log("hola");
-    console.log(this.detalles);
+    //console.log(this.detalles);
     this.detalles.height = (this.detalles.height / 10);
     this.detalles.weight = (this.detalles.weight / 10);
   }
