@@ -1,5 +1,5 @@
 import { Component, Inject  } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef , MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-detalle-dialog',
@@ -7,6 +7,8 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./detalle-dialog.component.css']
 })
 export class DetalleDialogComponent {
+
+
   constructor(@Inject(MAT_DIALOG_DATA) public detalles: any) {}
 
   ngOnInit() {

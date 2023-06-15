@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+.modal-dialog-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilo para el fondo oscuro al hacer clic fuera del diálogo */
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialog-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.dialog-content {
+  z-index: 99999;
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef  } from '@angular/core';
 import { PokeAPIService } from '../../Services/poke-api.service';
 import { PaginationInstance } from 'ngx-pagination';
 import { MatDialog, MatDialogRef  } from '@angular/material/dialog';
@@ -30,7 +30,7 @@ export class PokemonComponent implements OnInit {
 
   dialogRef!: MatDialogRef<DetalleDialogComponent>;
 
-  constructor(private PokeAPIService: PokeAPIService, private dialog: MatDialog) { }
+  constructor(private PokeAPIService: PokeAPIService, private dialog: MatDialog, private elementRef: ElementRef) { }
 
 
   ngOnInit() {

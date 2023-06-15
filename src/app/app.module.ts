@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DetalleDialogComponent } from './Components/pokemon/detalle-dialog/detalle-dialog.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
