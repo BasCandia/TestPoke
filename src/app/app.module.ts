@@ -9,6 +9,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DetalleDialogComponent } from './Components/pokemon/detalle-dialog/detalle-dialog.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,7 +26,10 @@ import { DetalleDialogComponent } from './Components/pokemon/detalle-dialog/deta
     HttpClientModule,
     NgxPaginationModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

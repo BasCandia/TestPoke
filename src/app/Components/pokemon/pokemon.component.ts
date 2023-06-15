@@ -56,13 +56,13 @@ export class PokemonComponent implements OnInit {
   }
 
   aplicarFiltro() {
-    let datosFiltrados = this.datosOriginales.filter(dato => {
+    this.datosFiltrados = this.datosOriginales.filter(dato => {
       const nombre = dato.name.toLowerCase();
       const filtro = this.filtroNombre.toLowerCase();
       return nombre.includes(filtro);
     });
 
-    datosFiltrados.sort((a, b) => {
+    this.datosFiltrados.sort((a, b) => {
       const nombreA = a.name.toLowerCase();
       const nombreB = b.name.toLowerCase();
 
@@ -75,7 +75,7 @@ export class PokemonComponent implements OnInit {
       }
     });
 
-    this.datosFiltrados = datosFiltrados;
+    this.totalItems = this.datosFiltrados.length;
   }
 
   ordenarAscendente() {
