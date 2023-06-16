@@ -7,7 +7,6 @@
   align-items: center;
 }
 
-/* Estilo para el fondo oscuro al hacer clic fuera del diálogo */
 .modal-backdrop {
   background-color: rgba(0, 0, 0, 0.5);
 }
@@ -34,18 +33,18 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Color oscuro semi-transparente */
-  z-index: 999; /* Asegúrate de que el z-index sea mayor que el del diálogo */
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
 }
 
 #carouselContainer {
-  margin: 0 auto; /* Alinea el contenedor horizontalmente en el centro */
+  margin: 0 auto;
   height: 250px;
-  width: 250px; /* Establece el ancho del contenedor en 250px */
+  width: 250px;
 }
 
 body {
-  background-image: url('src/assets/background.png'); /* o background-color: #abcdef; para un color de fondo */
+  background-image: url('src/assets/background.png');
   background-repeat: no-repeat;
   background-size: cover;
 }

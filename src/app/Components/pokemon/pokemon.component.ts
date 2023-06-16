@@ -13,7 +13,7 @@ export class PokemonComponent implements OnInit {
 
   //LISTA PAGINADA
   datos: any[] = []; // Array para datos de la API
-  p: number = 1; // Página actual de la paginación
+  p: number = 1; // número actual de la paginación
   pageSize: number = 20; // Cantidad de elementos por página
   totalItems: number = 0; // Total de elementos recibidos de la API
 
